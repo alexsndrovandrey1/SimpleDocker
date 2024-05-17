@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  server:
+    image: leatrice:v1
+    build: .
+    container_name: container_1
+  proxy:
+    image: nginx
+    container_name: container_2
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:8080
